@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Movement2D : MonoBehaviour
 {
-    public float MovementSpeed = 1;
+    private float baseSpeed = 5;
+    [SerializeField]
+    private float speedMod = 1;
     void Start()
     {
         
@@ -13,7 +15,7 @@ public class Movement2D : MonoBehaviour
     {
         var movement_h = Input.GetAxis("Horizontal");
         var movement_v = Input.GetAxis("Vertical");
-        transform.position += new Vector3(movement_h, movement_v, 0) * Time.deltaTime * MovementSpeed;
+        transform.position += new Vector3(movement_h, movement_v, 0) * Time.deltaTime * baseSpeed * speedMod;
         
     }
 }
