@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Movement2D : MonoBehaviour
 {
-    private float baseSpeed = 5;
+    [SerializeField]
+    private float baseSpeed = 10;
     [SerializeField]
     private float speedMod = 1;
     void Start()
