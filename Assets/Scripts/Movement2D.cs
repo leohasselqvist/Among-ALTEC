@@ -9,6 +9,8 @@ public class Movement2D : MonoBehaviour
     [SerializeField]
     private float speedMod = 1;
 
+    private Collider2D selectedTask;
+
     public Rigidbody2D rb;
     void Start()
     {
@@ -21,6 +23,31 @@ public class Movement2D : MonoBehaviour
         //transform.position += new Vector3(movement_h, movement_v, 0) * Time.deltaTime * baseSpeed * speedMod;*/
 
         rb.velocity = new Vector2(movement_h, movement_v);
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            selectedTask.GetComponent<Task>().Popup();
+        }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Task: ENTER from " + other.name);
+        if (other.name == "Task")
+        {
+            selectedTask = other;
+
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Task: EXIT");
+        if (other.name == "Task")
+        {
+            selectedTask = null;
+        }
     }
 }

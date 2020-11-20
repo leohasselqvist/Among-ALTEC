@@ -22,6 +22,10 @@ public class Task : MonoBehaviour
     }
 
     // Update is called once per frame
+    public void Popup()
+    {
+        Debug.Log("Task: POPUP!");
+    }
     void Update()
     {
         
