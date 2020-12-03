@@ -16,7 +16,7 @@ public class Switch : MonoBehaviour
 
         if (isOn)
         {
-
+            Main.Instance.SwitchChange(1);
         }
     }
     private void OnMouseUp()
@@ -26,5 +26,14 @@ public class Switch : MonoBehaviour
 
         on.SetActive(isOn);
         up.SetActive(isUp);
+
+        if (isOn)
+        {
+            Main.Instance.SwitchChange(1);
+        }
+        else
+        {
+            Main.Instance.SwitchChange(-1);
+        }
     }
 }
