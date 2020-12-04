@@ -6,6 +6,7 @@ public class Vent : MonoBehaviour
 {
     private Collider2D entryObject;
     public bool isInVent;
+    public bool isVisible;
 
     void Start()
     {
@@ -31,7 +32,16 @@ public class Vent : MonoBehaviour
         isInVent = true;
         entryObject.transform.position = transform.position;
 
-
+        if (isVisible == false)
+        {
+            entryObject.GetComponent<Renderer>().enabled = false;
+            isVisible = true;
+        }
+        else if (isVisible)
+        {
+            entryObject.GetComponent<Renderer>().enabled = true;
+            isVisible = false;
+        }
     }
     void Update()
     {
