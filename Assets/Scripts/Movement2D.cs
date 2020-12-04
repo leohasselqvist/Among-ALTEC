@@ -10,7 +10,6 @@ public class Movement2D : MonoBehaviour
     private float speedMod = 1;
 
     private Collider2D selectedTask;
-
     public Rigidbody2D rb;
     void Start()
     {
@@ -26,18 +25,25 @@ public class Movement2D : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            selectedTask.GetComponent<Task>().Popup();
+            if (selectedTask.name == "Vent")
+            {
+                selectedTask.GetComponent<Vent>().Popup();
+            }
+            else if (selectedTask.name == "Vent")
+            {
+                selectedTask.GetComponent<Task>().Popup();
+            }
         }
+
         
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Task: ENTER from " + other.name);
-        if (other.name == "Task")
+        if (other.name == "Vent" || other.name == "Task")
         {
             selectedTask = other;
-
         }
 
     }
@@ -45,7 +51,7 @@ public class Movement2D : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Task: EXIT");
-        if (other.name == "Task")
+        if (other.name == "Vent" || other.name == "Task")
         {
             selectedTask = null;
         }
