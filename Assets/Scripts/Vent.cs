@@ -6,7 +6,6 @@ public class Vent : MonoBehaviour
 {
     private Collider2D entryObject;
     public bool isInVent;
-    public bool isVisible;
 
     void Start()
     {
@@ -29,16 +28,21 @@ public class Vent : MonoBehaviour
     public void Popup()
     {
         Debug.Log("Task: POPUP!");
+
+        //Put player position to vent position
         entryObject.transform.position = transform.position;
 
+        //Check if player is goin into vent or out off vent
         if (!isInVent)
         {
+            //Freze the player position
             entryObject.GetComponent<Renderer>().enabled = false;
             isInVent = true;
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
         else if (isInVent)
         {
+            //Unfreeze the player position
             entryObject.GetComponent<Renderer>().enabled = true;
             isInVent = false;
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
