@@ -29,18 +29,19 @@ public class Vent : MonoBehaviour
     public void Popup()
     {
         Debug.Log("Task: POPUP!");
-        isInVent = true;
         entryObject.transform.position = transform.position;
 
-        if (isVisible == false)
+        if (!isInVent)
         {
             entryObject.GetComponent<Renderer>().enabled = false;
-            isVisible = true;
+            isInVent = true;
+            entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
-        else if (isVisible)
+        else if (isInVent)
         {
             entryObject.GetComponent<Renderer>().enabled = true;
-            isVisible = false;
+            isInVent = false;
+            entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
     void Update()
