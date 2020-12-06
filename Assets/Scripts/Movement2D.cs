@@ -11,9 +11,18 @@ public class Movement2D : MonoBehaviour
 
     private Collider2D selectedTask;
     public Rigidbody2D rb;
+    public bool timerOn = false;
     void Start()
     {
         
+    }
+    IEnumerator timer()
+    {
+        Debug.Log("Timer called");
+        timerOn = true;
+        yield return new WaitForSeconds(1);
+        timerOn = false;
+        Debug.Log("Timer Over");
     }
     void Update()
     {
@@ -25,13 +34,17 @@ public class Movement2D : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (selectedTask.name == "Vent")
+            while(timerOn == false)
             {
-                selectedTask.GetComponent<Vent>().Popup();
-            }
-            else if (selectedTask.name == "Vent")
-            {
-                selectedTask.GetComponent<Task>().Popup();
+                if (selectedTask.name == "Vent")
+                {
+                    selectedTask.GetComponent<Vent>().Popup();
+                    StartCoroutine(timer());
+                }
+                else if (selectedTask.name == "Vent")
+                {
+                    selectedTask.GetComponent<Task>().Popup();
+                }
             }
         }
 
