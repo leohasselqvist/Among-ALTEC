@@ -8,6 +8,8 @@ public class Movement2D : MonoBehaviour
     private float baseSpeed = 10;
     [SerializeField]
     private float speedMod = 1;
+    [SerializeField]
+    private float delayTime = 1;
 
     private Collider2D selectedTask;
     public Rigidbody2D rb;
@@ -20,7 +22,7 @@ public class Movement2D : MonoBehaviour
     {
         Debug.Log("Timer called");
         timerOn = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delayTime);
         timerOn = false;
         Debug.Log("Timer Over");
     }
