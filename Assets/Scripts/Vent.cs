@@ -32,10 +32,10 @@ public class Vent : MonoBehaviour
         //Put player position to vent position
         entryObject.transform.position = transform.position;
 
-        //Check if player is goin into vent or out off vent
+        //Check if player is going into vent or out of vent
         if (!isInVent)
         {
-            //Freze the player position
+            //Freeze the player position
             entryObject.GetComponent<Renderer>().enabled = false;
             isInVent = true;
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
