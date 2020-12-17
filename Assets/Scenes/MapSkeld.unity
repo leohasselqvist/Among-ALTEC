@@ -132,6 +132,9 @@ GameObject:
   - component: {fileID: 189721042}
   - component: {fileID: 189721041}
   - component: {fileID: 189721040}
+  - component: {fileID: 189721043}
+  - component: {fileID: 189721044}
+  - component: {fileID: 189721045}
   m_Layer: 0
   m_Name: SkeldCafeteria
   m_TagString: Untagged
@@ -268,3 +271,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &189721043
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189721039}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -5, y: 0.55}
+  - {x: -4.62, y: 0.55}
+  - {x: -4.62, y: 2.6}
+  - {x: -3, y: 4.2}
+  - {x: 2.25, y: 4.2}
+  - {x: 4.63, y: 1.82}
+  - {x: 4.63, y: 0.55}
+  - {x: 5, y: 0.55}
+--- !u!68 &189721044
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189721039}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -5, y: -0.4}
+  - {x: -4.62, y: -0.4}
+  - {x: -4.62, y: -2.41}
+  - {x: -2.55, y: -4.47}
+  - {x: -0.66, y: -4.47}
+  - {x: -0.66, y: -4.99}
+--- !u!68 &189721045
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189721039}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 5, y: -0.4}
+  - {x: 4.65, y: -0.4}
+  - {x: 4.65, y: -2.33}
+  - {x: 2.52, y: -4.46}
+  - {x: 0.58, y: -4.47}
+  - {x: 0.58, y: -4.99}
