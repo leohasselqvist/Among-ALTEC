@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5348508321622570142, guid: 911c27e0537dfb7439bd6cb94c70ef4a,
+        type: 3}
+      propertyPath: orthographic size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5348508321819958848, guid: 911c27e0537dfb7439bd6cb94c70ef4a,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
