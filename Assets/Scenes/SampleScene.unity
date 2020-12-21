@@ -340,6 +340,11 @@ PrefabInstance:
       propertyPath: speedMod
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5348508321819958910, guid: 911c27e0537dfb7439bd6cb94c70ef4a,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 5348508321185598692}
     - target: {fileID: 5348508321819958911, guid: 911c27e0537dfb7439bd6cb94c70ef4a,
         type: 3}
       propertyPath: m_Name
