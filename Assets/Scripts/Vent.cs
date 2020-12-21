@@ -6,9 +6,14 @@ public class Vent : MonoBehaviour
 {
     private Collider2D entryObject;
     public bool isInVent;
+    public int ID;
+    public VentSystem ventSystem;
+
+    Animator VentAnimator;
 
     void Start()
     {
+        VentAnimator = gameObject.GetComponent<Animator>();
         Debug.Log("Task: Started");
     }
 
@@ -35,10 +40,15 @@ public class Vent : MonoBehaviour
         //Check if player is going into vent or out of vent
         if (!isInVent)
         {
+
+            ventSystem.CanEnterVentSystem(ID);
+
             //Freeze the player position
             entryObject.GetComponent<Renderer>().enabled = false;
             isInVent = true;
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+
+            VentAnimator.SetTrigger("Vent_Animation");
         }
         else if (isInVent)
         {
@@ -46,6 +56,7 @@ public class Vent : MonoBehaviour
             entryObject.GetComponent<Renderer>().enabled = true;
             isInVent = false;
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            VentAnimator.SetTrigger("Vent_Animation");
         }
     }
     void Update()
