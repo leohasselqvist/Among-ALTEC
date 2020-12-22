@@ -22,7 +22,7 @@ public class Movement2D : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * baseSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * baseSpeed;
 
-        totalMove = horizontalMove + verticalMove;
+        totalMove = Mathf.Abs(horizontalMove) + Mathf.Abs(verticalMove);
 
         animator.SetFloat("Speed", Mathf.Abs(totalMove));
 
