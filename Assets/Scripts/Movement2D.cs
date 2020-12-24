@@ -12,6 +12,7 @@ public class Movement2D : MonoBehaviour
     float horizontalMove = 0;
     float verticalMove = 0;
     float totalMove = 0;
+    float directionalMove = 0;
 
     public Animator animator;
 
@@ -21,6 +22,9 @@ public class Movement2D : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * baseSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * baseSpeed;
+
+        directionalMove = Input.GetAxis("Horizontal");
+        Debug.Log("Direction value: " + directionalMove);
 
         totalMove = Mathf.Abs(horizontalMove) + Mathf.Abs(verticalMove);
 
