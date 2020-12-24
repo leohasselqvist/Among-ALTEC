@@ -20,14 +20,16 @@ public class Movement2D : MonoBehaviour
 
     void Update()
     {
+        //Ta fram värden på spelarens rörelse
         horizontalMove = Input.GetAxisRaw("Horizontal") * baseSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * baseSpeed;
 
+        //Värde för spelarens rikting (vänster < 0 < höger)
         directionalMove = Input.GetAxis("Horizontal");
         Debug.Log("Direction value: " + directionalMove);
 
+        //Kolla om spelaren rör sig eller inte
         totalMove = Mathf.Abs(horizontalMove) + Mathf.Abs(verticalMove);
-
         animator.SetFloat("Speed", Mathf.Abs(totalMove));
 
         var movement_h = Input.GetAxis("Horizontal") * baseSpeed * speedMod;
