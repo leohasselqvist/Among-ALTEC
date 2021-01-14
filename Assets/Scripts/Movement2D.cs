@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,15 +39,19 @@ public class Movement2D : MonoBehaviour
         {
             while(timerOn == false)
             {
-                if (selectedTask.name == "Vent")
+                try
                 {
-                    selectedTask.GetComponent<Vent>().Popup();
-                    StartCoroutine(timer());
+                    if (selectedTask.name == "Vent")
+                    {
+                        selectedTask.GetComponent<Vent>().Popup();
+                        StartCoroutine(timer());
+                    }
+                    else if (selectedTask.name == "Vent")
+                    {
+                        selectedTask.GetComponent<Task>().Popup();
+                    }
                 }
-                else if (selectedTask.name == "Vent")
-                {
-                    selectedTask.GetComponent<Task>().Popup();
-                }
+                catch (NullReferenceException) { }
             }
         }
 
