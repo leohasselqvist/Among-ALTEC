@@ -20,6 +20,13 @@ public class Movement2D : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    private void FixedUpdate()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+
+        Flip(horizontal);
+    }
+
     void Update()
     {
         //Ta fram värden på spelarens rörelse
@@ -44,6 +51,15 @@ public class Movement2D : MonoBehaviour
 
     private void Flip(float horizontal)
     {
+        if (horizontal > 0 && !facingright || horizontal < 0 && facingright)
+        {
+            facingright = !facingright;
 
+            Vector3 theScale = transform.localScale;
+
+            theScale.x *= -1;
+
+            transform.localScale = theScale;
+        }
     }
 }
