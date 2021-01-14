@@ -14,6 +14,8 @@ public class Movement2D : MonoBehaviour
     float totalMove = 0;
     float directionalMove = 0;
 
+    bool facingright = true;
+
     public Animator animator;
 
     public Rigidbody2D rb;
@@ -38,5 +40,10 @@ public class Movement2D : MonoBehaviour
 
         rb.velocity = new Vector2(movement_h, movement_v);
         
+    }
+
+    private void Flip(float horizontal)
+    {
+
     }
 }
