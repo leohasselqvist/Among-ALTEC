@@ -37,25 +37,18 @@ public class Movement2D : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            while(timerOn == false)
+            if (timerOn == false)
             {
-                try
+                if (selectedTask)
                 {
                     if (selectedTask.name == "Vent")
                     {
                         selectedTask.GetComponent<Vent>().Popup();
                         StartCoroutine(timer());
                     }
-                    else if (selectedTask.name == "Vent")
-                    {
-                        selectedTask.GetComponent<Task>().Popup();
-                    }
                 }
-                catch (NullReferenceException) { }
             }
         }
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
