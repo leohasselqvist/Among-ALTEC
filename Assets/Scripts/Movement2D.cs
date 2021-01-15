@@ -37,15 +37,12 @@ public class Movement2D : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (timerOn == false)
+            if (timerOn == false && selectedTask)
             {
-                if (selectedTask)
+                if (selectedTask.name == "Vent")
                 {
-                    if (selectedTask.name == "Vent")
-                    {
-                        selectedTask.GetComponent<Vent>().Popup();
-                        StartCoroutine(timer());
-                    }
+                    selectedTask.GetComponent<Vent>().Popup();
+                    StartCoroutine(timer());
                 }
             }
         }

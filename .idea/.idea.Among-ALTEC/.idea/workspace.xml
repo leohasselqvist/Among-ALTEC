@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4bbdc7b-0468-4bf0-ab1f-7bdedc23bddf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Among-ALTEC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Among-ALTEC/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Among-ALTEC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Among-ALTEC/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement2D.cs" afterDir="false" />
     </list>
@@ -61,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1610626025181</updated>
       <workItem from="1610626029013" duration="724000" />
-      <workItem from="1610711431136" duration="1211000" />
+      <workItem from="1610711431136" duration="1503000" />
     </task>
     <servers />
   </component>
@@ -74,6 +73,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="35" y="99" width="2376" height="1256" key="VCS.FileHistoryDialog" timestamp="1610712912100">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="35" y="99" width="2376" height="1256" key="VCS.FileHistoryDialog/0.0.2560.1440/2560.207.1920.1080@0.0.2560.1440" timestamp="1610712912100" />
     <state x="943" y="325" key="search.everywhere.popup" timestamp="1610712445426">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
