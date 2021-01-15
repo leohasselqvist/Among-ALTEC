@@ -9,6 +9,8 @@ public class Main : MonoBehaviour
     public int switchCount;
     public GameObject winText;
     private int onCount = 0;
+    
+    
 
     private void Awake()
     {
@@ -17,11 +19,27 @@ public class Main : MonoBehaviour
     public void SwitchChange(int points)
     {
         onCount = onCount + points;
+        
 
         if (onCount == switchCount)
         {
             winText.SetActive(true);
+
+
+            StartCoroutine(Timer());
+
+            
+
         }
     }
+
+    private IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(2);
+
+        Destroy(gameObject);
+        Destroy(winText);
+    }
+    
 
 }
