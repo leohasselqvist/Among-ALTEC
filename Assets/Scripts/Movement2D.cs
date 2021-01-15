@@ -24,7 +24,7 @@ public class Movement2D : MonoBehaviour
 
         rb.velocity = new Vector2(movement_h, movement_v);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
             selectedTask.GetComponent<Task>().Popup();
         }
