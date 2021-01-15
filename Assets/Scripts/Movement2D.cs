@@ -35,23 +35,17 @@ public class Movement2D : MonoBehaviour
 
         rb.velocity = new Vector2(movement_h, movement_v);
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (timerOn == false && selectedTask)
-            {
-                if (selectedTask.name == "Vent")
-                {
-                    selectedTask.GetComponent<Vent>().Popup();
-                    StartCoroutine(timer());
-                }
-            }
-        }
+        if (!Input.GetButtonDown("Fire1")) return;
+        if (timerOn != false || !selectedTask) return;
+        if (!selectedTask.CompareTag("Vent")) return;
+        selectedTask.GetComponent<Vent>().Popup();
+        StartCoroutine(timer());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Task: ENTER from " + other.name);
-        if (other.name == "Vent" || other.name == "Task")
+        if (other.CompareTag("Vent") || other.name == "Task")
         {
             selectedTask = other;
         }
@@ -61,7 +55,7 @@ public class Movement2D : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Task: EXIT");
-        if (other.name == "Vent" || other.name == "Task")
+        if (other.CompareTag("Vent") || other.name == "Task")
         {
             selectedTask = null;
         }

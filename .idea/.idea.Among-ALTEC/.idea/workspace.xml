@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b4bbdc7b-0468-4bf0-ab1f-7bdedc23bddf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Among-ALTEC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Among-ALTEC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement2D.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +13,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65CAB14A-C59E-4552-B77F-98A4AED18F9E/ab/c4a59bf7/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -60,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1610626025181</updated>
       <workItem from="1610626029013" duration="724000" />
-      <workItem from="1610711431136" duration="1503000" />
+      <workItem from="1610711431136" duration="2965000" />
     </task>
     <servers />
   </component>
