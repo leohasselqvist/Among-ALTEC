@@ -202,6 +202,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7978318697901310512, guid: d05393f7ee5c99a49a9fa36c2c596b77,
+        type: 3}
+      propertyPath: connectedVents.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978318697901310512, guid: d05393f7ee5c99a49a9fa36c2c596b77,
+        type: 3}
+      propertyPath: connectedVents.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7978318697901310513, guid: d05393f7ee5c99a49a9fa36c2c596b77,
         type: 3}
       propertyPath: m_Name

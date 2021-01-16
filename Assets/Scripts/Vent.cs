@@ -6,6 +6,9 @@ public class Vent : MonoBehaviour
 {
     private Collider2D entryObject;
     public bool isInVent;
+    
+    [SerializeField]
+    private List<Vent> connectedVents;
 
     void Start()
     {

@@ -15,6 +15,7 @@ public class Movement2D : MonoBehaviour
     private Collider2D selectedTask;
     public Rigidbody2D rb;
     public bool timerOn = false;
+    public Vent inVent;
     void Start()
     {
         
@@ -35,11 +36,13 @@ public class Movement2D : MonoBehaviour
 
         rb.velocity = new Vector2(movement_h, movement_v);
 
-        if (!Input.GetButtonDown("Fire1")) return;
-        if (timerOn != false || !selectedTask) return;
-        if (!selectedTask.CompareTag("Vent")) return;
-        selectedTask.GetComponent<Vent>().Popup();
-        StartCoroutine(timer());
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (timerOn != false || !selectedTask) return;
+            if (!selectedTask.CompareTag("Vent")) return;
+            selectedTask.GetComponent<Vent>().Popup();
+            StartCoroutine(timer());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
