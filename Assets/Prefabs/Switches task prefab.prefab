@@ -389,6 +389,11 @@ PrefabInstance:
       propertyPath: isUp
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4521287319808218156, guid: 594364f1c9f390445b465157e34a83d8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6477867324953695607, guid: 594364f1c9f390445b465157e34a83d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -469,6 +474,11 @@ PrefabInstance:
       propertyPath: isUp
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4521287319808218156, guid: 594364f1c9f390445b465157e34a83d8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6477867324953695607, guid: 594364f1c9f390445b465157e34a83d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,6 +557,11 @@ PrefabInstance:
     - target: {fileID: 3316136662847819097, guid: 594364f1c9f390445b465157e34a83d8,
         type: 3}
       propertyPath: isUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521287319808218156, guid: 594364f1c9f390445b465157e34a83d8,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477867324953695607, guid: 594364f1c9f390445b465157e34a83d8,
@@ -634,6 +649,11 @@ PrefabInstance:
       propertyPath: isUp
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4521287319808218156, guid: 594364f1c9f390445b465157e34a83d8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6477867324953695607, guid: 594364f1c9f390445b465157e34a83d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,6 +732,16 @@ PrefabInstance:
     - target: {fileID: 3316136662847819097, guid: 594364f1c9f390445b465157e34a83d8,
         type: 3}
       propertyPath: isOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521287319808218156, guid: 594364f1c9f390445b465157e34a83d8,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521287319808218156, guid: 594364f1c9f390445b465157e34a83d8,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477867324953695607, guid: 594364f1c9f390445b465157e34a83d8,
