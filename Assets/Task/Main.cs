@@ -24,12 +24,7 @@ public class Main : MonoBehaviour
         if (onCount == switchCount)
         {
             winText.SetActive(true);
-
-
             StartCoroutine(Timer());
-
-            
-
         }
     }
 
