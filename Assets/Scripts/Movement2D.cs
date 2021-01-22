@@ -18,6 +18,8 @@ public class Movement2D : MonoBehaviour
 
     public Animator animator;
 
+    private Collider2D selectedTask;
+
     public Rigidbody2D rb;
 
     private void FixedUpdate()
@@ -46,7 +48,32 @@ public class Movement2D : MonoBehaviour
         //transform.position += new Vector3(movement_h, movement_v, 0) * Time.deltaTime * baseSpeed * speedMod;*/
 
         rb.velocity = new Vector2(movement_h, movement_v);
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            selectedTask.GetComponent<Task>().Popup();
+        }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Task: ENTER from " + other.name);
+        if (other.name == "Task")
+        {
+            selectedTask = other;
+
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("Task: EXIT");
+        if (other.name == "Task")
+        {
+            selectedTask = null;
+        }
     }
 
     private void Flip(float horizontal)
