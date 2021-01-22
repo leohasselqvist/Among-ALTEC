@@ -31,7 +31,6 @@ public class Main : MonoBehaviour
     private IEnumerator Timer()
     {
         yield return new WaitForSeconds(2);
-
         Destroy(gameObject);
         Destroy(winText);
     }
