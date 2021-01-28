@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (isDead = true)
+        {
+            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        }
         
     }
 }
