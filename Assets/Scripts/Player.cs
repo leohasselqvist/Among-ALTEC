@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     int killDistance;
     int killCooldown;
     int visionMod;
-    bool isDead;
+    bool isDead = false;
     bool isImposter;
     int emergencyMeetings;
 
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (isDead = true)
+        if (isDead == true)
         {
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
