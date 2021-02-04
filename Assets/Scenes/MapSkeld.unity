@@ -665,12 +665,12 @@ PrefabInstance:
     - target: {fileID: 1196380867643896436, guid: a25e966944c187d42984402cd64ca76f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7097278
+      value: -0.7147351
       objectReference: {fileID: 0}
     - target: {fileID: 1196380867643896436, guid: a25e966944c187d42984402cd64ca76f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.704476
+      value: 0.6993953
       objectReference: {fileID: 0}
     - target: {fileID: 2439037284870565847, guid: a25e966944c187d42984402cd64ca76f,
         type: 3}
@@ -685,12 +685,12 @@ PrefabInstance:
     - target: {fileID: 2439037284870565847, guid: a25e966944c187d42984402cd64ca76f,
         type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 3.0591822
+      value: 4.0046816
       objectReference: {fileID: 0}
     - target: {fileID: 2439037284870565847, guid: a25e966944c187d42984402cd64ca76f,
         type: 3}
       propertyPath: m_PointLightInnerRadius
-      value: 0.48101473
+      value: 0.24063435
       objectReference: {fileID: 0}
     - target: {fileID: 2439037284870565847, guid: a25e966944c187d42984402cd64ca76f,
         type: 3}
