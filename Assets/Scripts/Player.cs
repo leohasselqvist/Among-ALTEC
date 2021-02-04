@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
     string playerName;
     int killDistance;
     int killCooldown;
-    int visionMod;
-    bool isDead = false;
+    int visionMod;  
+    bool isDead;
     bool isImposter;
     int emergencyMeetings;
+
+    public Animator animator;
 
     public Player(string playerName, int killDistance, int killCooldown, int visionMod, bool isDead, bool isImposter, int emergencyMeetings)
     {
@@ -32,8 +34,9 @@ public class Player : MonoBehaviour
     {
         if (isDead == true)
         {
+            animator.SetBool("Dead", true);
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
         }
-        
+
     }
 }
