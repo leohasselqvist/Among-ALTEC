@@ -310,7 +310,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189721039}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -653,6 +653,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650400500455170320, guid: a25e966944c187d42984402cd64ca76f,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.23921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650400500455170320, guid: a25e966944c187d42984402cd64ca76f,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.2901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2650400500455170320, guid: a25e966944c187d42984402cd64ca76f,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.2901961
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a25e966944c187d42984402cd64ca76f, type: 3}
