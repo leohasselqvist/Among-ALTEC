@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class SwipePoint : MonoBehaviour
 {
-    private SwipeTask swipeTask;
+    private SwipeTask _swipeTask;
     private void Awake()
     {
         _swipeTask = GetComponentInParent<SwipeTask>();
@@ -15,3 +15,9 @@ public class NewBehaviourScript : MonoBehaviour
         _swipeTask.SwipePointTrigger(this);
     }
 }
+
+
+
+
+
+
