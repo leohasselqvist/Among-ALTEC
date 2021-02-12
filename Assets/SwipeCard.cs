@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SwipeCard : MonoBehaviour, IDragHandler
+public class SwipeCard : MonoBehaviour
 {
     private Vector3 mousePosition;
     private Rigidbody2D rb;
     private Vector2 direction;
     private float moveSpeed = 100f;
 
-    //private Canvas _canvas;
+    
 
     void Start()
     {
@@ -31,17 +31,5 @@ public class SwipeCard : MonoBehaviour, IDragHandler
         }
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        /*Vector2 pos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform, eventData.position, _canvas.worldCamera, out pos);
-
-        transform.position = _canvas.transform.TransformPoint(pos);*/
-    }
-
-    private void Awake()
-    {
-        //_canvas = GetComponentInParent<Canvas>();
-    }
-
+    
 }
