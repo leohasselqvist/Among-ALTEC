@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Vent : MonoBehaviour
 {
-    private Collider2D entryObject;
+    public Collider2D entryObject;
     public bool isInVent;
     
     //[SerializeField]

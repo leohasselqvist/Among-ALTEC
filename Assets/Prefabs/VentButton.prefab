@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8211662906820451563}
   - component: {fileID: 4799194067833675284}
-  - component: {fileID: 663473625936694262}
+  - component: {fileID: 5377691935877100609}
   - component: {fileID: 3241103311826726193}
   m_Layer: 0
   m_Name: VentButton
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &663473625936694262
+--- !u!60 &5377691935877100609
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -108,9 +108,34 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5524934, y: -0.9246197}
-      - {x: 0.0021463037, y: 0.9100814}
-      - {x: -0.5270717, y: -0.9243727}
+    - - {x: -0.099999994, y: -0.32999998}
+      - {x: 0.04, y: -0.29}
+      - {x: 0.21, y: -0.24}
+      - {x: 0.35, y: -0.19999999}
+      - {x: 0.38, y: -0.19}
+      - {x: 0.45, y: -0.17}
+      - {x: 0.55, y: -0.14}
+      - {x: 0.69, y: -0.099999994}
+      - {x: 0.78999996, y: -0.07}
+      - {x: 0.85999995, y: -0.049999997}
+      - {x: 0.89, y: -0.04}
+      - {x: 0.94, y: -0.01}
+      - {x: 0.93, y: 0.02}
+      - {x: 0.85999995, y: 0.04}
+      - {x: 0.38, y: 0.17999999}
+      - {x: 0.04, y: 0.28}
+      - {x: -0.68, y: 0.48999998}
+      - {x: -0.84999996, y: 0.53999996}
+      - {x: -0.89, y: 0.55}
+      - {x: -0.94, y: 0.56}
+      - {x: -0.96, y: 0.53999996}
+      - {x: -0.96, y: -0.55}
+      - {x: -0.95, y: -0.57}
+      - {x: -0.90999997, y: -0.57}
+      - {x: -0.84, y: -0.56}
+      - {x: -0.77, y: -0.53}
+      - {x: -0.37, y: -0.41}
+      - {x: -0.29999998, y: -0.39}
 --- !u!114 &3241103311826726193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f7b8de90860084797ccf20a037f911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rotationSpeed: 0
