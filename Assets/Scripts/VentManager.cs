@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class VentManager : MonoBehaviour
 {
-
-    Transform[] allChildren = GetComponentsInChildren<Transform>();
-    List<GameObject> childObjects = new List<GameObject>();
+    List<GameObject> Arrows = new List<GameObject>();
 
     void Start()
     {
-        foreach (Transform child in allChildren)
+        foreach (Transform child in transform)
         {
-            childObjects.Add(child.gameObject);
+            if (child.tag == "VentArrow")
+            {
+                child.GetComponent<SpriteRenderer>().enabled = false;
+
+                Arrows.Add(child.gameObject);
+            }
         }
+
     }
 
     // Update is called once per frame
@@ -22,8 +26,11 @@ public class VentManager : MonoBehaviour
         
     }
 
-    void showArrows() 
-    { 
-        
+    public void showArrows(bool shown) 
+    {
+        foreach (GameObject arrow in Arrows) 
+        {
+            arrow.GetComponent<SpriteRenderer>().enabled = shown;
+        }
     }
 }

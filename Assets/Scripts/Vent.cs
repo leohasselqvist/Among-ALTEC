@@ -6,7 +6,7 @@ public class Vent : MonoBehaviour
 {
     public Collider2D entryObject;
     public bool isInVent;
-    
+
     //[SerializeField]
     //private List<Vent> connectedVents;
 
@@ -41,7 +41,8 @@ public class Vent : MonoBehaviour
             //Freeze the player position
             entryObject.GetComponent<Renderer>().enabled = false;
             isInVent = true;
-            entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+            showArrows(true);
         }
         else if (isInVent)
         {
@@ -49,7 +50,13 @@ public class Vent : MonoBehaviour
             entryObject.GetComponent<Renderer>().enabled = true;
             isInVent = false;
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            showArrows(false);
         }
+    }
+
+    public void showArrows(bool shown) 
+    {
+        transform.parent.GetComponent<VentManager>().showArrows(shown);
     }
     void Update()
     {

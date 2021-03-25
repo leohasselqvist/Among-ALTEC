@@ -34,7 +34,9 @@ public class VentArrow : MonoBehaviour
             player = host.entryObject;
             player.transform.position = target.transform.position;
             host.isInVent = false;
+            host.showArrows(false);
             targetObject.isInVent = true;
+            targetObject.showArrows(true);
         }
     }
 }
