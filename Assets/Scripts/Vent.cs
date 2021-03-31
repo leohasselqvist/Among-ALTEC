@@ -34,7 +34,7 @@ public class Vent : MonoBehaviour
 
         //Put player position to vent position
         entryObject.transform.position = transform.position;
-
+        GetComponent<Animator>().SetTrigger("EnteringVent");
         //Check if player is going into vent or out of vent
         if (!isInVent)
         {
@@ -52,6 +52,8 @@ public class Vent : MonoBehaviour
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             showArrows(false);
         }
+
+
     }
 
     public void showArrows(bool shown) 
