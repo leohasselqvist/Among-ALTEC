@@ -2384,6 +2384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vent
       objectReference: {fileID: 0}
+    - target: {fileID: 7978318697901310513, guid: d05393f7ee5c99a49a9fa36c2c596b77,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7978318697901310517, guid: d05393f7ee5c99a49a9fa36c2c596b77,
         type: 3}
       propertyPath: m_Size.x
