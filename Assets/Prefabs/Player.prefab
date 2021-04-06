@@ -156,6 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f36928fa998f1846a63ea74b9bbc4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: default
+  isDead: 0
+  isImposter: 0
+  emergencyMeetings: 0
+  playerPrefab: {fileID: 821843931165227050, guid: 618c0e06602cb924294adc70f4da3dca,
+    type: 3}
+  animator: {fileID: 7994358612794103179}
 --- !u!61 &2938155031850401875
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    string playerName;
-    bool isDead;
-    bool isImposter;
-    int emergencyMeetings;
+    public string playerName;
+    public bool isDead;
+    public bool isImposter;
+    public int emergencyMeetings;
 
     public GameObject playerPrefab;
 
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        spawnEnemy();
+        //spawnEnemy();  man this bugged my code so much - from leo
         
     }
 
