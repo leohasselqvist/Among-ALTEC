@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Movement2D : MonoBehaviour
+public class Movement2D : NetworkBehaviour
 {
     [SerializeField]
     private float baseSpeed = 10;
@@ -22,8 +23,12 @@ public class Movement2D : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public GameObject CameraPrefab;
+
     private void FixedUpdate()
     {
+        if (!isLocalPlayer) return; // Om Player objektet är någon annan på servern än en själv, avbryt funktionen
+
         float horizontal = Input.GetAxis("Horizontal");
 
         Flip(horizontal);
@@ -31,13 +36,14 @@ public class Movement2D : MonoBehaviour
 
     void Update()
     {
+        if (!isLocalPlayer) return; // Om Player objektet är någon annan på servern än en själv, avbryt funktionen
+
         //Ta fram värden på spelarens rörelse
         horizontalMove = Input.GetAxisRaw("Horizontal") * baseSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * baseSpeed;
 
         //Värde för spelarens rikting (vänster < 0 < höger)
         directionalMove = Input.GetAxis("Horizontal");
-        Debug.Log("Direction value: " + directionalMove);
 
         //Kolla om spelaren rör sig eller inte
         totalMove = Mathf.Abs(horizontalMove) + Mathf.Abs(verticalMove);
@@ -89,4 +95,9 @@ public class Movement2D : MonoBehaviour
             transform.localScale = theScale;
         }
     }
+
+	public override void OnStartLocalPlayer()
+	{
+        Instantiate(CameraPrefab, transform);
+	}
 }

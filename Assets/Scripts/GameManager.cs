@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Mirror;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     // DETTA OBJEKTET FÖRSTÖRS ALDRIG UNDER HELA SPELET
     // Den kommer alltid finnas i bakgrunden och håller koll på spelinställningarna, antal spelare, vilka är imposters, vilka som lever, osv.

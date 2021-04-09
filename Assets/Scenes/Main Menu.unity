@@ -541,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTemplate: {fileID: 2650400499595070449, guid: a25e966944c187d42984402cd64ca76f,
     type: 3}
+  selfPlayer: {fileID: 0}
   playerList: []
 --- !u!4 &1000972533
 Transform:
