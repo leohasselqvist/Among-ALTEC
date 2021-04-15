@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2938155031850401875}
   - component: {fileID: 6067004958433176515}
   - component: {fileID: 5016901674097281132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196380867643896436}
   - component: {fileID: 2439037284870565847}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
