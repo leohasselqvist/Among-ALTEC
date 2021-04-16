@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         spawnEnemy();
-        
     }
 
     private void spawnEnemy()
@@ -36,6 +35,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         if (isDead == true)
         {
             animator.SetBool("Dead", true);
