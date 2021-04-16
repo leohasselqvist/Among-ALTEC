@@ -5,6 +5,7 @@ using Mirror;
 
 public class CustomNetworkManager : NetworkManager
 {
+    public static CustomNetworkManager Instance;
     // Start is called before the first frame update
     public override void OnStartServer()
     {
@@ -13,6 +14,10 @@ public class CustomNetworkManager : NetworkManager
     }
 
     // Update is called once per frame
+    public override void Awake()
+    {
+        Instance = this;
+    }
     public override void OnStopServer()
     {
         Debug.Log("Server stopped!");

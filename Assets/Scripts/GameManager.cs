@@ -49,7 +49,6 @@ public class GameManager : NetworkBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("MapSkeld");
     }
 
     public void SpawnPlayers(Transform pos) // Only call in a map scene (ex. MapSkeld)

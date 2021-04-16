@@ -21,6 +21,6 @@ public class MainMenuEvents : MonoBehaviour
 
     public void InitGame() // this starts the actual game like killing and shit.
     {
-        GameManager.Instance.StartGame();
+        CustomNetworkManager.Instance.ServerChangeScene("MapSkeld");
     }
 }
