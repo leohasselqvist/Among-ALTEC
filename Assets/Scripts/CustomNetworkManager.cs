@@ -10,8 +10,6 @@ public class CustomNetworkManager : NetworkManager
     // Start is called before the first frame update
     public override void OnStartServer()
     {
-        //GameManager.Instance.selfPlayer = Instantiate(GameManager.Instance.playerTemplate);  // spawna in spelaren i lobby:n och spara den i en variabel
-        //GameManager.Instance.playerList.Add(GameManager.Instance.selfPlayer);  // lägg till spelaren till en lista
         Debug.Log("server started");
         Instantiate(joinHUD, new Vector3(0, 0, 0), Quaternion.identity);
     }
