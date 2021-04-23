@@ -30,7 +30,6 @@ public class Movement2D : NetworkBehaviour
         if (!isLocalPlayer) return; // Om Player objektet är någon annan på servern än en själv, avbryt funktionen
 
         float horizontal = Input.GetAxis("Horizontal");
-
         Flip(horizontal);
     }
 
@@ -93,6 +92,7 @@ public class Movement2D : NetworkBehaviour
             theScale.x *= -1;
 
             transform.localScale = theScale;
+            transform.Find("Player Name").transform.localScale = theScale; // Detta gör så att namnet flippar inte
         }
     }
 

@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using Mirror;
 
 public class Player : MonoBehaviour
 {
+    //[SyncVar]  // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
     public string playerName;
+
     public bool isDead;
     public bool isImposter;
     public int emergencyMeetings;
@@ -24,7 +29,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         //spawnEnemy();  man this bugged my code so much - from leo
-        
+        playerName = PersonalSettings.Instance.username;
+        transform.Find("Player Name").GetComponent<TextMeshPro>().text = playerName;
     }
 
     private void spawnEnemy()
