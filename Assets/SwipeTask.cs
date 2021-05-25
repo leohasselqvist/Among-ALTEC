@@ -21,6 +21,8 @@ public class SwipeTask : MonoBehaviour
 
     private float _cuntdown = 0;
 
+    public GameObject winText;
+
     private void Update()
     {
         _cuntdown -= Time.deltaTime;
@@ -38,6 +40,8 @@ public class SwipeTask : MonoBehaviour
         {
             _greenOn.SetActive(true);
             _completed.SetActive(true);
+            winText.SetActive(true);
+            StartCoroutine(Timer());
         }
         else
         {
@@ -52,6 +56,13 @@ public class SwipeTask : MonoBehaviour
         _tryagain.SetActive(false);
     }
 
+    private IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+        Destroy(winText);
+    }
+
     public void  SwipePointTrigger(SwipePoint swipePoint)
     {
         if (swipePoint == _swipePoints[_currentSwipePointindex])
@@ -63,6 +74,7 @@ public class SwipeTask : MonoBehaviour
         {
             _currentSwipePointindex = 0;
             StartCoroutine(FinishTask(true));
+
         }
     }
 
