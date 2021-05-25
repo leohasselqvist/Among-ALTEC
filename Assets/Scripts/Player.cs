@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
 
     string playerName;
-    bool isDead;
+    bool isDead = false;
     bool isImposter;
     int emergencyMeetings;
 
@@ -60,12 +60,14 @@ public class Player : MonoBehaviour
         {
             selectedTask.GetComponent<Task>().Popup();
         }
+    }
 
-        if (false)
-        {
-            animator.SetBool("Dead", true);
-            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-        }
+    private void Death()
+    {
+        isDead = true;
+        spawnEnemy();
+        this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+        animator.SetBool("Dead", true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -111,7 +113,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        spawnEnemy();
+
     }
 
     private void spawnEnemy()
