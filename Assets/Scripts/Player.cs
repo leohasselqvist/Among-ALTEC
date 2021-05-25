@@ -26,15 +26,9 @@ public class Player : MonoBehaviour
     private Collider2D selectedTask;
 
     public Rigidbody2D rb;
-
-    string playerName;
     bool isDead = false;
     bool isImposter;
     int emergencyMeetings;
-
-    public bool isDead;
-    public bool isImposter;
-    public int emergencyMeetings;
 
     public GameObject playerPrefab;
 
