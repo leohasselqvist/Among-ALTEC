@@ -9,6 +9,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float speedMod = 1;
 
+    [SerializeField]
+    private int hp = 100;
+
+    public GameObject barröd;
+
     float horizontalMove = 0;
     float verticalMove = 0;
     float totalMove = 0;
@@ -60,6 +65,11 @@ public class Player : MonoBehaviour
         {
             selectedTask.GetComponent<Task>().Popup();
         }
+
+        barröd = GameObject.Find("Player/barröd");
+
+        barröd.transform.localScale = new Vector3(2, 1, 0);
+
     }
 
     private void Death()
@@ -111,9 +121,11 @@ public class Player : MonoBehaviour
         this.emergencyMeetings = emergencyMeetings;
     }
 
+    Vector3 localscale;
     void Start()
     {
-
+        localscale = transform.localScale;
+        
     }
 
     private void spawnEnemy()
