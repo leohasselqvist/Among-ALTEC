@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -9,6 +10,8 @@ public class Movement2D : NetworkBehaviour
     private float baseSpeed = 10;
     [SerializeField]
     private float speedMod = 1;
+    [SerializeField]
+    private float delayTime = 1;
 
     float horizontalMove = 0;
     float verticalMove = 0;
@@ -20,8 +23,9 @@ public class Movement2D : NetworkBehaviour
     public Animator animator;
 
     private Collider2D selectedTask;
-
     public Rigidbody2D rb;
+    public bool timerOn = false;
+    public Vent inVent;
 
     public GameObject CameraPrefab;
 
@@ -31,6 +35,15 @@ public class Movement2D : NetworkBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         Flip(horizontal);
+    }
+    
+    IEnumerator timer()
+    {
+        Debug.Log("Timer called");
+        timerOn = true;
+        yield return new WaitForSeconds(delayTime);
+        timerOn = false;
+        Debug.Log("Timer Over");
     }
 
     void Update()
@@ -56,18 +69,19 @@ public class Movement2D : NetworkBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
-            selectedTask.GetComponent<Task>().Popup();
+            if (timerOn != false || !selectedTask) return;
+            if (!selectedTask.CompareTag("Vent")) return;
+            selectedTask.GetComponent<Vent>().Popup();
+            StartCoroutine(timer());
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Task: ENTER from " + other.name);
-        if (other.name == "Task")
+        if (other.CompareTag("Vent") || other.name == "Task")
         {
             selectedTask = other;
-
         }
 
     }
@@ -75,7 +89,7 @@ public class Movement2D : NetworkBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Task: EXIT");
-        if (other.name == "Task")
+        if (other.CompareTag("Vent") || other.name == "Task")
         {
             selectedTask = null;
         }
