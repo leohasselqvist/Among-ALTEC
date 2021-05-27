@@ -124,7 +124,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         localscale = transform.localScale;
-        Death();
     }
 
     private void spawnEnemy()
