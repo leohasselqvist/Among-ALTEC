@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1.4705882, y: 1.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -142,8 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   speedMod: 1
-  hp: 2
-  "barr\xF6d": {fileID: 0}
+  slider: {fileID: 5717970049566896008}
   animator: {fileID: 7994358612794103179}
   rb: {fileID: 2650400499595070415}
   playerPrefab: {fileID: 821843931165227050, guid: 618c0e06602cb924294adc70f4da3dca,
@@ -168,7 +167,7 @@ BoxCollider2D:
     oldSize: {x: 1.4705882, y: 1.4}
     newSize: {x: 1.4705882, y: 1.4}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -379,6 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6752681775577545812}
   - component: {fileID: 5717970049566896008}
+  - component: {fileID: 224431605405168480}
   m_Layer: 5
   m_Name: Healthbar
   m_TagString: Untagged
@@ -451,12 +451,24 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &224431605405168480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4929176754957010109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5d76cff98786b4cb33f54c3dd5fa82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6436176357296175802
 GameObject:
   m_ObjectHideFlags: 0

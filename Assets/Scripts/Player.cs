@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,10 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float speedMod = 1;
 
-    [SerializeField]
-    private int hp = 100;
+    int hp = 50;
 
-    public GameObject barröd;
+    public Slider slider;
 
     float horizontalMove = 0;
     float verticalMove = 0;
@@ -40,6 +40,10 @@ public class Player : MonoBehaviour
 
         Flip(horizontal);
     }
+    public void SetHealth(int hp)
+    {
+        slider.value = hp;
+    }
 
     void Update()
     {
@@ -65,11 +69,6 @@ public class Player : MonoBehaviour
         {
             selectedTask.GetComponent<Task>().Popup();
         }
-
-        barröd = GameObject.Find("Player/barröd");
-
-        barröd.transform.localScale = new Vector3(2, 1, 0);
-
     }
 
     private void Death()
