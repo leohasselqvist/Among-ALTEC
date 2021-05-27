@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Mirror;
 
 public class Player : MonoBehaviour
 {
+    //[SyncVar]  // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
+    public string playerName;
     [SerializeField]
     private float baseSpeed = 10;
     [SerializeField]
     private float speedMod = 1;
-
-    int hp = 50;
-
-    public Slider slider;
 
     float horizontalMove = 0;
     float verticalMove = 0;
@@ -26,8 +26,6 @@ public class Player : MonoBehaviour
     private Collider2D selectedTask;
 
     public Rigidbody2D rb;
-
-    string playerName;
     bool isDead = false;
     bool isImposter;
     int emergencyMeetings;
@@ -39,10 +37,6 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         Flip(horizontal);
-    }
-    public void SetHealth(int hp)
-    {
-        slider.value = hp;
     }
 
     void Update()
@@ -123,7 +117,9 @@ public class Player : MonoBehaviour
     Vector3 localscale;
     void Start()
     {
-        localscale = transform.localScale;
+        //spawnEnemy();  man this bugged my code so much - from leo
+        playerName = PersonalSettings.Instance.username;
+        transform.Find("Player Name").GetComponent<TextMeshPro>().text = playerName;
     }
 
     private void spawnEnemy()
