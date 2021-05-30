@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Mirror;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     //[SyncVar]  // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
     public string playerName;
@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     float verticalMove = 0;
     float totalMove = 0;
     float directionalMove = 0;
+
+    public GameObject CameraPrefab;
 
     bool facingright = true;
 
@@ -34,6 +36,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (!isLocalPlayer) return;
+
         float horizontal = Input.GetAxis("Horizontal");
 
         Flip(horizontal);
@@ -41,6 +46,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!isLocalPlayer) return;
         //Ta fram värden på spelarens rörelse
         horizontalMove = Input.GetAxisRaw("Horizontal") * baseSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * baseSpeed;
@@ -106,19 +112,17 @@ public class Player : MonoBehaviour
             transform.localScale = theScale;
         }
     }
-    public Player(string playerName, bool isDead, bool isImposter, int emergencyMeetings)
-    {
-        this.playerName = playerName;
-        this.isDead = isDead;
-        this.isImposter = isImposter;
-        this.emergencyMeetings = emergencyMeetings;
-    }
 
     void Start()
     {
         //spawnEnemy();  man this bugged my code so much - from leo
         playerName = PersonalSettings.Instance.username;
         transform.Find("Player Name").GetComponent<TextMeshPro>().text = playerName;
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        Instantiate(CameraPrefab, transform);
     }
 
     private void spawnEnemy()
