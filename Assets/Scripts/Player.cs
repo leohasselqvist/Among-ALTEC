@@ -7,6 +7,8 @@ using Mirror;
 
 public class Player : NetworkBehaviour
 {
+    private List<GameObject> PlayerList = new List<GameObject>();
+
     //[SyncVar]  // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
     public string playerName;
     [SerializeField]
@@ -53,7 +55,6 @@ public class Player : NetworkBehaviour
 
         //Värde för spelarens rikting (vänster < 0 < höger)
         directionalMove = Input.GetAxis("Horizontal");
-        Debug.Log("Direction value: " + directionalMove);
 
         //Kolla om spelaren rör sig eller inte
         totalMove = Mathf.Abs(horizontalMove) + Mathf.Abs(verticalMove);
@@ -113,17 +114,37 @@ public class Player : NetworkBehaviour
         }
     }
 
-    void Start()
-    {
-        //spawnEnemy();  man this bugged my code so much - from leo
-        playerName = PersonalSettings.Instance.username;
-        transform.Find("Player Name").GetComponent<TextMeshPro>().text = playerName;
-    }
-
     public override void OnStartLocalPlayer()
     {
         Instantiate(CameraPrefab, transform);
+        playerName = PersonalSettings.Instance.username;
+        serverRegister(gameObject, playerName);
     }
+
+    [Command]
+    public void serverRegister(GameObject player, string newName)
+    {
+        // DET HÄR KÖR BARA PÅ SERVERN, MEN ALLA PARAMETERS KOMMER FRÅN CLIENT (CLIENT INFO -> HOST PLAYEROBJECT)
+
+        player.transform.Find("Player Name").GetComponent<TextMeshPro>().text = newName;
+        PlayerList.Add(player);
+        updateNamesForPlayers(PlayerList);
+        Debug.Log("add " + player.GetComponent<Player>().playerName + " to list");
+    }
+
+    [ClientRpc]
+    public void updateNamesForPlayers(List<GameObject> playerList)
+    {
+        // DET HÄR KÖR BARA PÅ CLIENTS, MEN ALLA PARAMETERS KOMMER FRÅN SERVERN
+
+        foreach (GameObject player in playerList)
+        {
+            Debug.Log("update name");
+            player.transform.Find("Player Name").GetComponent<TextMeshPro>().text = player.GetComponent<Player>().playerName;  // APPLY NAMES TO NEW CONNECTS
+        }
+    }
+
+
 
     private void spawnEnemy()
     {

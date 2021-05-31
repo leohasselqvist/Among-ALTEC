@@ -7,11 +7,12 @@ public class CustomNetworkManager : NetworkManager
 {
     public static CustomNetworkManager Instance;
     public GameObject joinHUD;
+
     // Start is called before the first frame update
     public override void OnStartServer()
     {
         Debug.Log("server started");
-        Instantiate(joinHUD, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(joinHUD, new Vector3(0, 0, 0), Quaternion.identity);  // Spawna in HUD
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class CustomNetworkManager : NetworkManager
     }
     public override void OnClientConnect(NetworkConnection conn)
     {
-        Debug.Log("Client connected");
+        
     }
     public override void OnClientDisconnect(NetworkConnection conn)
     {
