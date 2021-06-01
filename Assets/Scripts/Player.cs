@@ -40,11 +40,6 @@ public class Player : MonoBehaviour
 
         Flip(horizontal);
     }
-    public void SetHealth(int hp)
-    {
-        slider.value = hp;
-
-    }
 
     void Update()
     {
@@ -80,7 +75,7 @@ public class Player : MonoBehaviour
         isDead = true;
         spawnEnemy();
         this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
-        animator.SetBool("Dead", true);
+        animator.SetBool("Dead", true); 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
