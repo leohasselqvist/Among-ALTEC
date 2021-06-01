@@ -116,10 +116,20 @@ public class Player : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
+        Debug.Log("OnStartLocalPlayer()");
         Instantiate(CameraPrefab, transform);
         playerName = PersonalSettings.Instance.username;
-        serverRegister(gameObject, playerName);
+        transform.Find("Player Name").GetComponent<TextMeshPro>().text = playerName;
+        if (isServer)
+        {
+            PlayerList.Add(gameObject); // Add themselves to the playerlist
+        }
+        else //stuff the server doesn't need to do
+        {
+            serverRegister(gameObject, playerName);  // Contact the server to be added to the playerlist
+        }
     }
+
 
     [Command]
     public void serverRegister(GameObject player, string newName)
@@ -128,8 +138,9 @@ public class Player : NetworkBehaviour
 
         player.transform.Find("Player Name").GetComponent<TextMeshPro>().text = newName;
         PlayerList.Add(player);
-        updateNamesForPlayers(PlayerList);
         Debug.Log("add " + player.GetComponent<Player>().playerName + " to list");
+        if (isServer) return;
+        updateNamesForPlayers(PlayerList);
     }
 
     [ClientRpc]
