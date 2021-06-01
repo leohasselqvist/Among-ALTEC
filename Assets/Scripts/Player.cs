@@ -10,9 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float speedMod = 1;
 
-    int hp = 50;
-
     public Slider slider;
+    private float HealthbarSet;
+    public float hp = 50;
 
     float horizontalMove = 0;
     float verticalMove = 0;
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     public void SetHealth(int hp)
     {
         slider.value = hp;
+
     }
 
     void Update()
@@ -69,6 +70,9 @@ public class Player : MonoBehaviour
         {
             selectedTask.GetComponent<Task>().Popup();
         }
+
+        HealthbarSet = hp;
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = HealthbarSet;
     }
 
     private void Death()
@@ -123,6 +127,7 @@ public class Player : MonoBehaviour
     Vector3 localscale;
     void Start()
     {
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = HealthbarSet;
         localscale = transform.localScale;
     }
 

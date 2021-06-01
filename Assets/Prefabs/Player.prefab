@@ -143,6 +143,7 @@ MonoBehaviour:
   baseSpeed: 3
   speedMod: 1
   slider: {fileID: 5717970049566896008}
+  hp: 22
   animator: {fileID: 7994358612794103179}
   rb: {fileID: 2650400499595070415}
   playerPrefab: {fileID: 821843931165227050, guid: 618c0e06602cb924294adc70f4da3dca,
