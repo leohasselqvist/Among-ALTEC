@@ -7,10 +7,11 @@ using Mirror;
 
 public class Player : NetworkBehaviour
 {
-    private List<GameObject> PlayerList = new List<GameObject>();
+    public List<GameObject> PlayerList = new List<GameObject>();
 
-    //[SyncVar]  // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
+    [SyncVar] // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
     public string playerName;
+
     [SerializeField]
     private float baseSpeed = 10;
     [SerializeField]
@@ -35,6 +36,8 @@ public class Player : NetworkBehaviour
     int emergencyMeetings;
 
     public GameObject playerPrefab;
+
+    private bool serverSetup = false;
 
     private void FixedUpdate()
     {
@@ -116,51 +119,31 @@ public class Player : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        Debug.Log("OnStartLocalPlayer()");
-        Instantiate(CameraPrefab, transform);
+        
+
+    }
+
+	private void Start()
+	{
+		if (isLocalPlayer) 
+        {		
+            Debug.Log("OnStartLocalPlayer()");
+            Instantiate(CameraPrefab, transform);
+        }
         playerName = PersonalSettings.Instance.username;
-        transform.Find("Player Name").GetComponent<TextMeshPro>().text = playerName;
-        if (isServer)
-        {
-            PlayerList.Add(gameObject); // Add themselves to the playerlist
-        }
-        else //stuff the server doesn't need to do
-        {
-            serverRegister(gameObject, playerName);  // Contact the server to be added to the playerlist
-        }
+        updateName("", playerName);
     }
 
 
-    [Command]
-    public void serverRegister(GameObject player, string newName)
-    {
-        // DET HÄR KÖR BARA PÅ SERVERN, MEN ALLA PARAMETERS KOMMER FRÅN CLIENT (CLIENT INFO -> HOST PLAYEROBJECT)
-
-        player.transform.Find("Player Name").GetComponent<TextMeshPro>().text = newName;
-        PlayerList.Add(player);
-        Debug.Log("add " + player.GetComponent<Player>().playerName + " to list");
-        if (isServer) return;
-        updateNamesForPlayers(PlayerList);
-    }
-
-    [ClientRpc]
-    public void updateNamesForPlayers(List<GameObject> playerList)
-    {
-        // DET HÄR KÖR BARA PÅ CLIENTS, MEN ALLA PARAMETERS KOMMER FRÅN SERVERN
-
-        foreach (GameObject player in playerList)
-        {
-            Debug.Log("update name");
-            player.transform.Find("Player Name").GetComponent<TextMeshPro>().text = player.GetComponent<Player>().playerName;  // APPLY NAMES TO NEW CONNECTS
-        }
-    }
-
-
-
-    private void spawnEnemy()
+	private void spawnEnemy()
     {
         GameObject a = Instantiate(playerPrefab) as GameObject;
         a.transform.position = this.transform.position;
 
+    }
+
+    private void updateName(string oldName, string newName)
+	{
+        transform.Find("Player Name").GetComponent<TextMeshPro>().text = newName;
     }
 }

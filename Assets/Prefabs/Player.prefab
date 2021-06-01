@@ -170,7 +170,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   playerName: leo is best
-  baseSpeed: 1
+  baseSpeed: 3
   speedMod: 1
   CameraPrefab: {fileID: 7128967942187936861, guid: 03a6c1bb3b6863b4797a3c82eef4fafb,
     type: 3}

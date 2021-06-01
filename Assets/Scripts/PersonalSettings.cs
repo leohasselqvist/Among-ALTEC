@@ -6,7 +6,7 @@ using UnityEngine;
 public class PersonalSettings : MonoBehaviour
 {
     public static PersonalSettings Instance;
-    public string username = "leo is best";
+    public string username = "babababa";
 
     void Awake()
     {
