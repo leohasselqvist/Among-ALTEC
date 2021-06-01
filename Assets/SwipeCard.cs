@@ -8,7 +8,7 @@ public class SwipeCard : MonoBehaviour
     private Vector3 mousePosition;
     private Rigidbody2D rb;
     private Vector2 direction;
-    private float moveSpeed = 100f;
+    private float moveSpeed = 800f;
 
     
 

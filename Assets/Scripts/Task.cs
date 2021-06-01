@@ -42,7 +42,7 @@ public class Task : MonoBehaviour
         Instantiate(taskPrefab, transform.position, Quaternion.identity); // för att spana in på specefik plats new Vector3.(-10,0,0)
 
         //Check if player is doing task or not
-        /*if (!doingtask)
+        if (!doingtask)
         {
             //Freeze the player position
             
@@ -56,7 +56,7 @@ public class Task : MonoBehaviour
             doingtask = false;
             entryObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        */
+        
         //GameObject.Instantiate(taskPrefab);
 
 
