@@ -78,6 +78,10 @@ public class Player : MonoBehaviour
         spawnEnemy();
         this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
         animator.SetBool("Dead", true); 
+        if (isImposter == true)
+        {
+            EndGame();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -89,6 +93,10 @@ public class Player : MonoBehaviour
 
         }
 
+    }
+    public void EndGame()
+    {
+        //Scrip for ending the game and returning to main menu
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -126,6 +134,13 @@ public class Player : MonoBehaviour
     {
         GameObject.Find("Healthbar").GetComponent<Slider>().value = HealthbarSet;
         localscale = transform.localScale;
+
+        if (isImposter == true)
+        {
+            hp = 500;
+            speedMod += 2;
+
+        }
     }
 
     private void spawnEnemy()
