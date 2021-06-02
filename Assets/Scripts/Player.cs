@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public Slider slider;
     private float HealthbarSet;
+
+    [SerializeField]
     public float hp = 50;
 
     float horizontalMove = 0;
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
 
         Flip(horizontal);
     }
-
+            
     void Update()
     {
         //Ta fram värden på spelarens rörelse
