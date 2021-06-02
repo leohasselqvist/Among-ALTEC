@@ -132,7 +132,21 @@ public class Player : NetworkBehaviour
         }
         playerName = PersonalSettings.Instance.username;
         updateName("", playerName);
+        Ping("yo mama");
     }
+
+    [Command]
+    public void Ping(string arg)
+	{
+        Debug.Log(arg);
+        ReturnPing(arg.ToUpper());
+	}
+
+    [TargetRpc]
+    public void ReturnPing(string arg)
+	{
+        Debug.Log(arg);
+	}
 
 
 	private void spawnEnemy()
