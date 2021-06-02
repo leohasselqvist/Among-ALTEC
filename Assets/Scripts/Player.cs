@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //"Setter" för horizontal för "Flip" funktion
+
         float horizontal = Input.GetAxis("Horizontal");
 
         Flip(horizontal);
@@ -75,6 +77,9 @@ public class Player : MonoBehaviour
 
     private void Death()
     {
+        //Spawnar lik, Sätter Opacity, sätter variabler till "true"
+        //Kollar om spelaren är impostoe, avslutar spelet
+
         isDead = true;
         spawnEnemy();
         this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
@@ -87,6 +92,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Kollar om man är i närheten av task, sätter selectedTask till task
+
         Debug.Log("Task: ENTER from " + other.name);
         if (other.name == "Task")
         {
@@ -102,6 +109,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        //Kollar om man går ut från en task, sätter selectedTask till null
+
         Debug.Log("Task: EXIT");
         if (other.name == "Task")
         {
@@ -111,6 +120,8 @@ public class Player : MonoBehaviour
 
     private void Flip(float horizontal)
     {
+        //Flippar spriten om man går höger/vänster
+
         if (horizontal > 0 && !facingright || horizontal < 0 && facingright)
         {
             facingright = !facingright;
@@ -124,6 +135,8 @@ public class Player : MonoBehaviour
     }
     public Player(string playerName, bool isDead, bool isImposter, int emergencyMeetings)
     {
+        //constructor för klassen "player"
+
         this.playerName = playerName;
         this.isDead = isDead;
         this.isImposter = isImposter;
@@ -133,6 +146,8 @@ public class Player : MonoBehaviour
     Vector3 localscale;
     void Start()
     {
+        //"Setter" för healthbar, ändrar variabler om man är impostor
+
         GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
         localscale = transform.localScale;
 
@@ -146,6 +161,8 @@ public class Player : MonoBehaviour
 
     private void spawnEnemy()
     {
+        //Funktion för att spawna sprite på död spelare
+
         GameObject a = Instantiate(playerPrefab) as GameObject;
         a.transform.position = this.transform.position;
 
