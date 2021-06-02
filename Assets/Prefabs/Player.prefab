@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1189570788609010945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6950424940202255937}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6950424940202255937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189570788609010945}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.90000004, y: 0.015000005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9116682516066448923}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &2650400499595070449
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +699,7 @@ GameObject:
   - component: {fileID: 9116682516066448923}
   - component: {fileID: 5406715638317768497}
   - component: {fileID: 5170888007968540064}
+  - component: {fileID: 2817640811467549239}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -688,6 +719,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2609069292629618890}
+  - {fileID: 6950424940202255937}
   m_Father: {fileID: 2650400499595070412}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -721,6 +753,24 @@ RotationConstraint:
   m_IsContraintActive: 0
   m_IsLocked: 0
   m_Sources: []
+--- !u!114 &2817640811467549239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722993416646042073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce22dc147d3f5414c910690828482056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 6950424940202255937}
+  bulletPrefab: {fileID: 3661893422615359566, guid: 7a819086a72d6b8458e3556489a74daf,
+    type: 3}
+  flashPrefab: {fileID: 675968666285540815, guid: 353cd42f47c688e45949d0b7b275af0e,
+    type: 3}
+  bulletForce: 10
 --- !u!1 &8619119321949123789
 GameObject:
   m_ObjectHideFlags: 0
