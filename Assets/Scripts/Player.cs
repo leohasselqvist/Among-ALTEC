@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Slider slider;
 
     [SerializeField]
-    private float hp = 100;
+    public float hp = 100;
 
     float horizontalMove = 0;
     float verticalMove = 0;
