@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1065654342339083229}
   - component: {fileID: 7436184998746527931}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4713698759643361310}
   - component: {fileID: 1073497149728920973}
   - component: {fileID: 523629998304579764}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,6 +219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 6729979048165013015, guid: 137b9915e9af2b1429228775cc9e1fdd,
     type: 3}
+  bloodEffect: {fileID: 9170614434047208440, guid: 6d2c1092777179141a9c52329ec21417,
+    type: 3}
 --- !u!1 &4118761169709716736
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9085798488227836330}
   - component: {fileID: 6950626904904060675}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
