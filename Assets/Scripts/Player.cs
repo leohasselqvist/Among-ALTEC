@@ -10,9 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float speedMod = 1;
 
-    int hp = 50;
-
     public Slider slider;
+
+    [SerializeField]
+    private float hp = 100;
 
     float horizontalMove = 0;
     float verticalMove = 0;
@@ -29,7 +30,10 @@ public class Player : MonoBehaviour
 
     string playerName;
     bool isDead = false;
+
+    [SerializeField]
     bool isImposter;
+
     int emergencyMeetings;
 
     public GameObject playerPrefab;
@@ -37,15 +41,13 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //"Setter" för horizontal för "Flip" funktion
+
         float horizontal = Input.GetAxis("Horizontal");
 
         Flip(horizontal);
     }
-    public void SetHealth(int hp)
-    {
-        slider.value = hp;
-    }
-
+            
     void Update()
     {
         //Ta fram värden på spelarens rörelse
@@ -71,18 +73,28 @@ public class Player : MonoBehaviour
             selectedTask.GetComponent<Task>().Popup();
         }
 
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
     }
 
     private void Death()
     {
+        //Spawnar lik, Sätter Opacity, sätter variabler till "true"
+        //Kollar om spelaren är impostoe, avslutar spelet
+
         isDead = true;
         spawnEnemy();
         this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
-        animator.SetBool("Dead", true);
+        animator.SetBool("Dead", true); 
+        if (isImposter == true)
+        {
+            EndGame();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Kollar om man är i närheten av task, sätter selectedTask till task
+
         Debug.Log("Task: ENTER from " + other.name);
         if (other.name == "Task")
         {
@@ -91,9 +103,15 @@ public class Player : MonoBehaviour
         }
 
     }
+    public void EndGame()
+    {
+        //Scrip for ending the game and returning to main menu
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        //Kollar om man går ut från en task, sätter selectedTask till null
+
         Debug.Log("Task: EXIT");
         if (other.name == "Task")
         {
@@ -103,19 +121,19 @@ public class Player : MonoBehaviour
 
     private void Flip(float horizontal)
     {
-        if (horizontal > 0 && !facingright || horizontal < 0 && facingright)
+        //Flippar spriten om man går höger/vänster
+
+        if (horizontal > 0 && !facingright || horizontal < 0 && facingright)  // Om vågrät movement är motsatsen till förra riktningen
         {
-            facingright = !facingright;
+            facingright = !facingright;  // Flippa facingright (så om den var true så blir den false, om den var false blir den true)
 
-            Vector3 theScale = transform.localScale;
-
-            theScale.x *= -1;
-
-            transform.localScale = theScale;
+            GetComponent<SpriteRenderer>().flipX = !facingright;  // Sätt den bool:en till flipX attributen i SpriteRenderer (riktningen var spegelvänd så fick invertera facingright)
         }
     }
     public Player(string playerName, bool isDead, bool isImposter, int emergencyMeetings)
     {
+        //constructor för klassen "player"
+
         this.playerName = playerName;
         this.isDead = isDead;
         this.isImposter = isImposter;
@@ -125,12 +143,23 @@ public class Player : MonoBehaviour
     Vector3 localscale;
     void Start()
     {
+        //"Setter" för healthbar, ändrar variabler om man är impostor
+
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
         localscale = transform.localScale;
-        
+
+        if (isImposter == true)
+        {
+            hp = 500;
+            speedMod += 2;
+
+        }
     }
 
     private void spawnEnemy()
     {
+        //Funktion för att spawna sprite på död spelare
+
         GameObject a = Instantiate(playerPrefab) as GameObject;
         a.transform.position = this.transform.position;
 

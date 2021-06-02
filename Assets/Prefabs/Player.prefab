@@ -77,10 +77,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 08f34d7a3bbb69146bf450abbfc2a2ce, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 73c4d74790dacde4ea657a512854a0be, type: 3}
+  m_Color: {r: 0.9622642, g: 0.9395693, b: 0.95649743, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 1
   m_Size: {x: 1.4705882, y: 1.4}
@@ -143,9 +143,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   speedMod: 1
-  slider: {fileID: 0}
+  slider: {fileID: 5717970049566896008}
+  hp: 0
   animator: {fileID: 7994358612794103179}
   rb: {fileID: 2650400499595070415}
+  isImposter: 0
   playerPrefab: {fileID: 821843931165227050, guid: 618c0e06602cb924294adc70f4da3dca,
     type: 3}
   CameraPrefab: {fileID: 0}
@@ -166,7 +168,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4705882, y: 1.4}
+    oldSize: {x: 22.68, y: 40.319996}
     newSize: {x: 1.4705882, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -187,8 +189,7 @@ GameObject:
   - component: {fileID: 2650400500455170320}
   - component: {fileID: 2650400500455170322}
   - component: {fileID: 2650400500455170321}
-  - component: {fileID: 5383581970860446066}
-  - component: {fileID: 5233960651036953048}
+  - component: {fileID: 4521067602058946965}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -273,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31d60d1053dcc04983573a4b9cbb774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5383581970860446066
+--- !u!114 &4521067602058946965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,23 +305,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1818360609 &5233960651036953048
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2650400500455170323}
-  m_Enabled: 1
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 0
-  m_Sources: []
 --- !u!1 &4220577019000048365
 GameObject:
   m_ObjectHideFlags: 0
