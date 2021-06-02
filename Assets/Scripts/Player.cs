@@ -11,10 +11,9 @@ public class Player : MonoBehaviour
     private float speedMod = 1;
 
     public Slider slider;
-    private float HealthbarSet;
 
     [SerializeField]
-    public float hp = 50;
+    private float hp = 100;
 
     float horizontalMove = 0;
     float verticalMove = 0;
@@ -31,7 +30,10 @@ public class Player : MonoBehaviour
 
     string playerName;
     bool isDead = false;
+
+    [SerializeField]
     bool isImposter;
+
     int emergencyMeetings;
 
     public GameObject playerPrefab;
@@ -68,8 +70,7 @@ public class Player : MonoBehaviour
             selectedTask.GetComponent<Task>().Popup();
         }
 
-        HealthbarSet = hp;
-        GameObject.Find("Healthbar").GetComponent<Slider>().value = HealthbarSet;
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
     }
 
     private void Death()
@@ -132,7 +133,7 @@ public class Player : MonoBehaviour
     Vector3 localscale;
     void Start()
     {
-        GameObject.Find("Healthbar").GetComponent<Slider>().value = HealthbarSet;
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
         localscale = transform.localScale;
 
         if (isImposter == true)
