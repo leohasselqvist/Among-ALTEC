@@ -33,6 +33,9 @@ public class Player : MonoBehaviour
     int emergencyMeetings;
 
     public GameObject playerPrefab;
+    public GameObject CameraPrefab;
+
+    Vector2 mousePos;  // Variabel som innehåller musens position, uppdaterar varje frame
 
     private void FixedUpdate()
     {
@@ -69,6 +72,8 @@ public class Player : MonoBehaviour
         {
             selectedTask.GetComponent<Task>().Popup();
         }
+
+        mousePos = CameraPrefab.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void Death()
