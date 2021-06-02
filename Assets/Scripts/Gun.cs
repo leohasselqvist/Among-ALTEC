@@ -20,24 +20,12 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Input.mousePosition - cam.WorldToScreenPoint(transform.position);  // Updaterar musens position varje frame (från kamerans perspektiv
-        //cam.gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, -transform.parent.transform.rotation);
+        mousePos = Input.mousePosition - cam.WorldToScreenPoint(transform.position);  // Updaterar musens position varje frame (från kamerans perspektiv)
     }
 
-	private void FixedUpdate()
-	{
-        var angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        float scaleFlip = 1*scaleModifier;
-        if (transform.parent.localScale.x > 0)  // hela den här If statementen är en otroligt överkomplicerad lösning men vafan det är det enda som funkar jag orkar inget mer stäm inte mig :(
-		{
-            scaleFlip = 1*scaleModifier;
-		}
-        else
-		{
-            scaleFlip = -1*scaleModifier;
-		}
-
-        transform.localScale = new Vector3(scaleFlip, Mathf.Abs(scaleFlip), transform.localScale.z);  // Applicera scaleflip till pistolen
+    private void FixedUpdate()
+    {
+        var angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;  // Använd Atan2 (Atan men utan division) för att bilda en vinkel från en koordinatssystem, och omvandla den från Radianer till Grader
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);  // Sedan använd unity's Quaternions system och omvandla vinkeln till Quaternions.
     }
-}
+}   
