@@ -122,15 +122,11 @@ public class Player : MonoBehaviour
     {
         //Flippar spriten om man går höger/vänster
 
-        if (horizontal > 0 && !facingright || horizontal < 0 && facingright)
+        if (horizontal > 0 && !facingright || horizontal < 0 && facingright)  // Om vågrät movement är motsatsen till förra riktningen
         {
-            facingright = !facingright;
+            facingright = !facingright;  // Flippa facingright (så om den var true så blir den false, om den var false blir den true)
 
-            Vector3 theScale = transform.localScale;
-
-            theScale.x *= -1;
-
-            transform.localScale = theScale;
+            GetComponent<SpriteRenderer>().flipX = !facingright;  // Sätt den bool:en till flipX attributen i SpriteRenderer (riktningen var spegelvänd så fick invertera facingright)
         }
     }
     public Player(string playerName, bool isDead, bool isImposter, int emergencyMeetings)
