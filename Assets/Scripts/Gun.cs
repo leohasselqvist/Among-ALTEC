@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     private Camera cam;
     private Rigidbody2D rb;
     private Vector2 mousePos;
+    public float scaleModifier = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -27,5 +28,16 @@ public class Gun : MonoBehaviour
 	{
         var angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        float scaleFlip = 1*scaleModifier;
+        if (transform.parent.localScale.x > 0)  // hela den här If statementen är en otroligt överkomplicerad lösning men vafan det är det enda som funkar jag orkar inget mer stäm inte mig :(
+		{
+            scaleFlip = 1*scaleModifier;
+		}
+        else
+		{
+            scaleFlip = -1*scaleModifier;
+		}
+
+        transform.localScale = new Vector3(scaleFlip, Mathf.Abs(scaleFlip), transform.localScale.z);  // Applicera scaleflip till pistolen
     }
 }
