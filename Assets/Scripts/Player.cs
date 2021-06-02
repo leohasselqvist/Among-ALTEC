@@ -9,7 +9,7 @@ public class Player : NetworkBehaviour
 {
     public List<GameObject> PlayerList = new List<GameObject>();
 
-    [SyncVar] // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
+    [SyncVar(hook =nameof(updateName))] // SyncVar är variablar som är synkade över nätverket, sånt som andra spelare måste veta.
     public string playerName;
 
     [SerializeField]
@@ -129,25 +129,23 @@ public class Player : NetworkBehaviour
         {		
             Debug.Log("OnStartLocalPlayer()");
             Instantiate(CameraPrefab, transform);
+            playerName = PersonalSettings.Instance.username;
+            if (!isServer) ServerUpdateName(gameObject, PersonalSettings.Instance.username);
         }
-        playerName = PersonalSettings.Instance.username;
-        updateName("", playerName);
-        Ping("yo mama");
+        if (!isServer)
+        {
+            updateName("", playerName); // För något skäl så uppdaterade inte namnen för nya clients, så detta är en quick fix.
+        }
+
+        //updateName("", playerName);
     }
 
     [Command]
-    public void Ping(string arg)
+    public void ServerUpdateName(GameObject arg, string newName)
 	{
-        Debug.Log(arg);
-        ReturnPing(arg.ToUpper());
+        arg.GetComponent<Player>().playerName = newName;
+        updateName("", arg.GetComponent<Player>().playerName);
 	}
-
-    [TargetRpc]
-    public void ReturnPing(string arg)
-	{
-        Debug.Log(arg);
-	}
-
 
 	private void spawnEnemy()
     {
@@ -158,6 +156,7 @@ public class Player : NetworkBehaviour
 
     private void updateName(string oldName, string newName)
 	{
+        Debug.Log("change my name");
         transform.Find("Player Name").GetComponent<TextMeshPro>().text = newName;
     }
 }
