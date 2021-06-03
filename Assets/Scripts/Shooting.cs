@@ -26,5 +26,6 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();  // Spara skottets rigidbody
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);  // Applicera en stor kraft på skottets rigidbody
         Destroy(flash, 0.05f);  // Ta bort flash efter 0.05 sekunder
+        
     }
 }

@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     public float hp = 100;
-
     float horizontalMove = 0;
     float verticalMove = 0;
     float totalMove = 0;
@@ -74,9 +73,10 @@ public class Player : MonoBehaviour
         }
 
         GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
+
     }
 
-    private void Death()
+    public void Death()
     {
         //Spawnar lik, Sätter Opacity, sätter variabler till "true"
         //Kollar om spelaren är impostoe, avslutar spelet
@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
         {
             EndGame();
         }
+        isDead = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -99,9 +100,7 @@ public class Player : MonoBehaviour
         if (other.name == "Task")
         {
             selectedTask = other;
-
         }
-
     }
     public void EndGame()
     {
@@ -152,7 +151,6 @@ public class Player : MonoBehaviour
         {
             hp = 500;
             speedMod += 2;
-
         }
     }
 
