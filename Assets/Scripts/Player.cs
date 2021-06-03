@@ -43,9 +43,10 @@ public class Player : NetworkBehaviour
     int emergencyMeetings;
 
     public GameObject playerPrefab;
-    public GameObject CameraPrefab;
 
     private bool serverSetup = false;
+
+    Vector3 localscale;
 
     private void FixedUpdate()
     {
@@ -144,7 +145,7 @@ public class Player : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        
+
 
     }
 
@@ -153,9 +154,10 @@ public class Player : NetworkBehaviour
 		if (isLocalPlayer) 
         {		
             Debug.Log("OnStartLocalPlayer()");
-            Instantiate(CameraPrefab, transform);
+            GameObject spawnedCamera = Instantiate(CameraPrefab, transform);
             playerName = PersonalSettings.Instance.username;
             if (!isServer) ServerUpdateName(gameObject, PersonalSettings.Instance.username);
+            transform.Find("Gun").GetComponent<Gun>().cam = spawnedCamera.GetComponent<Camera>();
         }
         if (!isServer)
         {

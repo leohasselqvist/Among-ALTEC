@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    private Camera cam;
+    public Camera cam;
     private Rigidbody2D rb;
     private Vector2 mousePos;
     public float scaleModifier = 1;
@@ -13,12 +13,12 @@ public class Gun : MonoBehaviour
     void Start()
     {
         
-        cam = transform.parent.transform.Find("Main Camera").GetComponent<Camera>();  // Hämta kamera från spelar objektet. TODO: FIX FOR NETWORKING WHEN MERGE
+        //cam = transform.parent.transform.Find("PlayerCamera").GetComponent<Camera>();  // Hämta kamera från spelar objektet.
         rb = transform.parent.GetComponent<Player>().rb;  // Hämta rigidbody från parent eftersom man behöver den för att fixa rotation
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()   
     {
         mousePos = Input.mousePosition - cam.WorldToScreenPoint(transform.position);  // Updaterar musens position varje frame (från kamerans perspektiv)
     }
