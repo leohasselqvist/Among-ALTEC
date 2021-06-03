@@ -17,6 +17,10 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private float speedMod = 1;
 
+    public Slider slider;
+
+    [SerializeField]
+    public float hp = 100;
     float horizontalMove = 0;
     float verticalMove = 0;
     float totalMove = 0;
@@ -32,15 +36,21 @@ public class Player : NetworkBehaviour
 
     public Rigidbody2D rb;
     bool isDead = false;
+
+    [SerializeField]
     bool isImposter;
+
     int emergencyMeetings;
 
     public GameObject playerPrefab;
+    public GameObject CameraPrefab;
 
     private bool serverSetup = false;
 
     private void FixedUpdate()
     {
+        //"Setter" för horizontal för "Flip" funktion
+
 
         if (!isLocalPlayer) return;
 
@@ -48,7 +58,7 @@ public class Player : NetworkBehaviour
 
         Flip(horizontal);
     }
-
+            
     void Update()
     {
         if (!isLocalPlayer) return;
@@ -73,29 +83,46 @@ public class Player : NetworkBehaviour
         {
             selectedTask.GetComponent<Task>().Popup();
         }
+
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
+
     }
 
-    private void Death()
+    public void Death()
     {
+        //Spawnar lik, Sätter Opacity, sätter variabler till "true"
+        //Kollar om spelaren är impostoe, avslutar spelet
+
         isDead = true;
         spawnEnemy();
         this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
-        animator.SetBool("Dead", true);
+        animator.SetBool("Dead", true); 
+        if (isImposter == true)
+        {
+            EndGame();
+        }
+        isDead = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Kollar om man är i närheten av task, sätter selectedTask till task
+
         Debug.Log("Task: ENTER from " + other.name);
         if (other.name == "Task")
         {
             selectedTask = other;
-
         }
-
+    }
+    public void EndGame()
+    {
+        //Scrip for ending the game and returning to main menu
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        //Kollar om man går ut från en task, sätter selectedTask till null
+
         Debug.Log("Task: EXIT");
         if (other.name == "Task")
         {
@@ -105,15 +132,13 @@ public class Player : NetworkBehaviour
 
     private void Flip(float horizontal)
     {
-        if (horizontal > 0 && !facingright || horizontal < 0 && facingright)
+        //Flippar spriten om man går höger/vänster
+
+        if (horizontal > 0 && !facingright || horizontal < 0 && facingright)  // Om vågrät movement är motsatsen till förra riktningen
         {
-            facingright = !facingright;
+            facingright = !facingright;  // Flippa facingright (så om den var true så blir den false, om den var false blir den true)
 
-            Vector3 theScale = transform.localScale;
-
-            theScale.x *= -1;
-
-            transform.localScale = theScale;
+            GetComponent<SpriteRenderer>().flipX = !facingright;  // Sätt den bool:en till flipX attributen i SpriteRenderer (riktningen var spegelvänd så fick invertera facingright)
         }
     }
 
@@ -137,7 +162,14 @@ public class Player : NetworkBehaviour
             updateName("", playerName); // För något skäl så uppdaterade inte namnen för nya clients, så detta är en quick fix.
         }
 
-        //updateName("", playerName);
+        GameObject.Find("Healthbar").GetComponent<Slider>().value = hp;
+        localscale = transform.localScale;
+
+        if (isImposter == true)
+        {
+            hp = 500;
+            speedMod += 2;
+        }
     }
 
     [Command]
@@ -149,6 +181,8 @@ public class Player : NetworkBehaviour
 
 	private void spawnEnemy()
     {
+        //Funktion för att spawna sprite på död spelare
+
         GameObject a = Instantiate(playerPrefab) as GameObject;
         a.transform.position = this.transform.position;
 
