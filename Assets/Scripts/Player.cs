@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
         if (other.name == "Task")
         {
             selectedTask = other;
-
+                
         }
 
     }
